@@ -45,8 +45,8 @@ class MainWindow(QMainWindow):
 
         # APP NAME
         # ///////////////////////////////////////////////////////////////
-        title = "PyDracula - Modern GUI"
-        description = "PyDracula APP - Theme with colors based on Dracula for Python."
+        title = "Cardiovascular 3D"
+        description = "Cardiovascular 3D Visualization System"
         # APPLY TEXTS
         self.setWindowTitle(title)
         widgets.titleRightInfo.setText(description)
@@ -73,15 +73,15 @@ class MainWindow(QMainWindow):
         widgets.btn_save.clicked.connect(self.buttonClick)
 
         # EXTRA LEFT BOX
-        def openCloseLeftBox():
-            UIFunctions.toggleLeftBox(self, True)
-        widgets.toggleLeftBox.clicked.connect(openCloseLeftBox)
-        widgets.extraCloseColumnBtn.clicked.connect(openCloseLeftBox)
+        # def openCloseLeftBox():
+        #     UIFunctions.toggleLeftBox(self, True)
+        # widgets.toggleLeftBox.clicked.connect(openCloseLeftBox)
+        # widgets.extraCloseColumnBtn.clicked.connect(openCloseLeftBox)
 
         # EXTRA RIGHT BOX
-        def openCloseRightBox():
-            UIFunctions.toggleRightBox(self, True)
-        widgets.settingsTopBtn.clicked.connect(openCloseRightBox)
+        # def openCloseRightBox():
+        #     # UIFunctions.toggleRightBox(self, True)
+        # widgets.settingsTopBtn.clicked.connect(openCloseRightBox)
 
         # SHOW APP
         # ///////////////////////////////////////////////////////////////
@@ -149,7 +149,7 @@ class MainWindow(QMainWindow):
     # ///////////////////////////////////////////////////////////////
     def mousePressEvent(self, event):
         # SET DRAG POS WINDOW
-        self.dragPos = event.globalPos()
+        self.dragPos = event.globalPosition().toPoint()
 
         # PRINT MOUSE EVENTS
         if event.buttons() == Qt.LeftButton:
@@ -161,4 +161,4 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("icon.ico"))
     window = MainWindow()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
